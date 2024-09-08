@@ -198,9 +198,20 @@ end
 
 
 function getPlayerHive(name)
-    print(tostring(game:GetService("Workspace").Honeycombs), tostring(game:GetService("Workspace").Honeycombs:FindFirstChild(name)))
-    return game:GetService("Workspace").Honeycombs:WaitForChild(name, 10);
-end;
+    local honeycombs = game:GetService("Workspace"):FindFirstChild("Honeycombs")
+    if honeycombs then
+        local hive = honeycombs:FindFirstChild(name)
+        if hive then
+            return hive
+        else
+            warn("Hive '" .. tostring(name) .. "' not found in Honeycombs")
+        end
+    else
+        warn("Honeycombs not found in Workspace")
+    end
+    return nil
+end
+
 
 
 function getLPLRHivePosition()
