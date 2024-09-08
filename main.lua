@@ -188,6 +188,18 @@ function callBeeMakeHoneyCommand()
 end
 
 
+function isReadyByCalculateScreen(r)
+    if r then
+        if r.Position.Y.Offset >= 4 then
+            return true
+        else
+            return false
+        end
+    else
+        warn('Missing Instance : isReadyByCalculateScreen!')
+    end
+end
+
 
 function toggle(r)
     r = not r
@@ -264,8 +276,16 @@ function toggleAutoFarm()
 
             print(HivePosition)
             tp(HivePosition);
+            local waited = isReadyByCalculateScreen(Players.LocalPlayer.PlayerGui:WaitForChild('ScreenGui'):WaitForChild('ActivateButton'));
 
             callBeeMakeHoneyCommand()
+
+            repeat
+                task.wait(0.2)
+                waited = isReadyByCalculateScreen(Players.LocalPlayer.PlayerGui:WaitForChild('ScreenGui'):WaitForChild('ActivateButton'));
+            until (waited)
+
+            task.wait(0.2)
 
             repeat
                 if isPlayerInventoryEmpty == true then
