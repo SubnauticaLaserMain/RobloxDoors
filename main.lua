@@ -209,6 +209,9 @@ function getLPLRHivePosition()
     if Hive then
         local Base = Hive:WaitForChild('patharrow', 30):WaitForChild('Base', 60);
 
+        print('Base is: ' .. tostring(Base))
+        print('Hive is: ' .. tostring(Hive))
+
         if Base then
             return Base.Position
         end
@@ -244,6 +247,7 @@ function toggleAutoFarm()
             local isPlayerInventoryEmpty = getIfPlayerHasNoPollen();
 
 
+            print(HivePosition)
             tp(HivePosition);
 
             callBeeMakeHoneyCommand()
