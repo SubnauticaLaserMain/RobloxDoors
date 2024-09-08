@@ -206,8 +206,14 @@ function getLPLRHivePosition()
     local hiveName = getLPLRHiveCore();
     local Hive = getPlayerHive(hiveName);
 
+
+    print('HiveName is: ' .. tostring(hiveName))
+    print('Hive is: ' .. tostring(Hive))
+
     if Hive then
         local Base = Hive:WaitForChild('patharrow', 30):WaitForChild('Base', 60);
+
+        print('Base is: ' .. tostring(Base))
 
         if Base then
             return Base.Position
@@ -245,7 +251,7 @@ function toggleAutoFarm()
 
 
             print(HivePosition)
-            tp('LocalPlayer Hive Position is: ' .. HivePosition);
+            tp(HivePosition);
 
             callBeeMakeHoneyCommand()
 
