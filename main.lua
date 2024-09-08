@@ -170,14 +170,10 @@ end
 
 
 function getLPLRHiveCore()
-    local CoreStats = Players.LocalPlayer:WaitForChild('CoreStats', 60);
+    local Hive = Players.LocalPlayer:WaitForChild('Honeycomb', 60);
 
-    if CoreStats then
-        local Hive = CoreStats:FindFirstChild('Honeycomb')
-
-        if Hive then
-            return Hive.Value
-        end
+    if Hive then
+        return Hive.Value
     end
 end
 
@@ -247,6 +243,8 @@ function toggleAutoFarm()
             local HivePosition = getLPLRHivePosition();
             local isPlayerInventoryEmpty = getIfPlayerHasNoPollen();
 
+
+            tp(HivePosition);
 
             callBeeMakeHoneyCommand()
 
