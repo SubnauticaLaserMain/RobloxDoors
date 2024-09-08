@@ -198,6 +198,7 @@ end
 
 
 function getPlayerHive(name)
+    print(tostring(game:GetService("Workspace").Honeycombs), tostring(game:GetService("Workspace").Honeycombs:FindFirstChild(name)))
     return game:GetService("Workspace").Honeycombs:WaitForChild(name, 10);
 end;
 
@@ -206,11 +207,14 @@ function getLPLRHivePosition()
     local hiveName = getLPLRHiveCore();
     local Hive = getPlayerHive(hiveName);
 
+
+    print('HiveName is: ' .. tostring(hiveName))
+    print('Hive is: ' .. tostring(Hive))
+
     if Hive then
         local Base = Hive:WaitForChild('patharrow', 30):WaitForChild('Base', 60);
 
         print('Base is: ' .. tostring(Base))
-        print('Hive is: ' .. tostring(Hive))
 
         if Base then
             return Base.Position
