@@ -244,6 +244,9 @@ function toggleAutoFarm()
             local isPlayerInventoryEmpty = getIfPlayerHasNoPollen();
 
 
+            print(HivePosition)
+            tp('LocalPlayer Hive Position is: ' .. HivePosition);
+
             callBeeMakeHoneyCommand()
 
             repeat
