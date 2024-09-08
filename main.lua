@@ -216,7 +216,7 @@ end
 
 function getLPLRHivePosition()
     local hiveName = getLPLRHiveCore();
-    local Hive = getPlayerHive(hiveName);
+    local Hive = getPlayerHive(tostring(hiveName));
 
 
     print('HiveName is: ' .. tostring(hiveName))
