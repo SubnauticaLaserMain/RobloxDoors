@@ -260,7 +260,7 @@ function toggleAutoFarm()
                 if isPlayerCapped == false then
                     callForToolCollect()
                     isPlayerCapped = getIfPlayerHasMaxPollen()
-                    tp(Vector3.new(-51.473960876464844, 4.447190761566162, 221.47222900390625));
+                    tp(Vector3.new(-51.473960876464844, 4.447190761566162, 221.47222900390625) + Vector3.new(math.random(0, 10), 0, math.random(0, 20)));
                     task.wait(0.2)
                     continue
                 else
@@ -274,7 +274,7 @@ function toggleAutoFarm()
             local isPlayerInventoryEmpty = getIfPlayerHasNoPollen();
 
 
-            tp(HivePosition + Vector3.new(math.random(0, 10), 0, math.random(0, 20)));
+            tp(HivePosition);
             local waited = isReadyByCalculateScreen(Players.LocalPlayer.PlayerGui:WaitForChild('ScreenGui'):WaitForChild('ActivateButton'));
 
             repeat
