@@ -158,7 +158,7 @@ function getIfPlayerHasNoPollen()
         local Pollen = CoreStats:WaitForChild('Pollen', 10);
 
 
-        if Cap and Pollen then
+        if Pollen then
             if Pollen.Value == 0 then
                 return true
             else
@@ -255,12 +255,13 @@ function toggleAutoFarm()
     if autoFarmToggled then
         repeat
             local isPlayerCapped = getIfPlayerHasMaxPollen();
+            tp(Vector3.new(-51.473960876464844, 4.447190761566162, 221.47222900390625) + Vector3.new(math.random(0, 10), 0, math.random(0, 20)));
+
 
             repeat
                 if isPlayerCapped == false then
                     callForToolCollect()
                     isPlayerCapped = getIfPlayerHasMaxPollen()
-                    tp(Vector3.new(-51.473960876464844, 4.447190761566162, 221.47222900390625));
                     task.wait(0.2)
                     continue
                 else
@@ -274,13 +275,13 @@ function toggleAutoFarm()
             local isPlayerInventoryEmpty = getIfPlayerHasNoPollen();
 
 
-            print(HivePosition)
             tp(HivePosition);
             local waited = isReadyByCalculateScreen(Players.LocalPlayer.PlayerGui:WaitForChild('ScreenGui'):WaitForChild('ActivateButton'));
 
             repeat
                 task.wait(0.2)
                 waited = isReadyByCalculateScreen(Players.LocalPlayer.PlayerGui:WaitForChild('ScreenGui'):WaitForChild('ActivateButton'));
+                --tp(HivePosition + Vector3.new(0, 2, 0))
             until (waited)
 
             task.wait(0.2)
@@ -308,3 +309,5 @@ local PlayerAutoFarm = World.CreateOptionsButton({
         toggleAutoFarm();
     end
 })
+
+-- loadstring(game:HttpGet('https://raw.githubusercontent.com/SubnauticaLaserMain/RobloxDoors/main/main.lua', true))()
